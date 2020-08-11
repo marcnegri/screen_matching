@@ -46,36 +46,54 @@ def get_ddn_score(in_ddn, wc_ddn):
 
 
 def get_domicile_score(in_domicile, wc_domicile):
-    in_lst = set(in_domicile)
-    wc_lst = set(wc_domicile)
-    if(in_lst == wc_lst):
-        return Result.MATCH
-    for x in in_domicile:
-        if(x in wc_domicile):
-            return Result.DEVIATION
-
-    return Result.DIFFERENCE                    
+    try:
+        in_lst = set(in_domicile)
+        wc_lst = set(wc_domicile)
+        if(in_lst == wc_lst):
+            return Result.MATCH
+        for x in in_domicile:
+            if(x in wc_domicile):
+                return Result.DEVIATION
+        return Result.DIFFERENCE                    
+    except Exception as inst:
+        print(type(inst))    
+        print(inst.args)     
+        print(inst)    
 
 def get_nationality_score(in_nationality, wc_nationality):
-    in_lst = set(in_nationality)
-    wc_lst = set(wc_nationality)
-    if(in_lst == wc_lst):
-        return Result.MATCH
-    for x in in_nationality:
-        if(x in wc_nationality):
-            return Result.DEVIATION
-
-    return Result.DIFFERENCE
+    try:
+        in_lst = set(in_nationality)
+        wc_lst = set(wc_nationality)
+        if(in_lst == wc_lst):
+            return Result.MATCH
+        for x in in_nationality:
+            if(x in wc_nationality):
+                return Result.DEVIATION
+        return Result.DIFFERENCE
+    except Exception as inst:
+        print(type(inst))    
+        print(inst.args)     
+        print(inst)
 
 def get_gender_score(in_gender, wc_gender):
-    if(in_gender == wc_gender):
-        return Result.MATCH
-    else:
-        return Result.DIFFERENCE
+    try:
+        if(in_gender == wc_gender):
+            return Result.MATCH
+        else:
+            return Result.DIFFERENCE
+    except Exception as inst:
+        print(type(inst))    
+        print(inst.args)     
+        print(inst)        
 
 def get_sanction_score(is_sanction)
-    if(is_sanction):
-        return Result.MATCH
+    try:
+        if(is_sanction):
+            return Result.MATCH
+    except Exception as inst:
+        print(type(inst))    
+        print(inst.args)     
+        print(inst)
 
 
 if __name__ == "__main__":
